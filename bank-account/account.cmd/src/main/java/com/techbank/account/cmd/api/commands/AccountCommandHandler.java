@@ -13,7 +13,7 @@ public class AccountCommandHandler implements CommandHandler {
 
     @Override
     public void handle(OpenAccountCommand command) {
-        AccountAggregate aggregate = new AccountAggregate(command);
+        AccountAggregate aggregate = new AccountAggregate(command);// raise event
         eventSourcingHandler.save(aggregate);
     }
 
