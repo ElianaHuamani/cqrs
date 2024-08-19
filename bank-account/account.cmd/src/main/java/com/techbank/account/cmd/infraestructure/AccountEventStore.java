@@ -29,10 +29,10 @@ public class AccountEventStore implements EventStore {
             throw new ConcurrencyException();
         }
         int version = expectedVersion;
-        for (var event: events) {
+        for (BaseEvent event: events) {
             version++;
             event.setVersion(version);
-            var eventModel = EventModel.builder()
+            EventModel eventModel = EventModel.builder()
                     .timestamp(new Date())
                     .aggregateIdentifier(aggregateId)
                     .version(version)

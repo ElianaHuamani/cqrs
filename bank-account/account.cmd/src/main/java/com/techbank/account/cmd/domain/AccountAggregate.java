@@ -19,7 +19,7 @@ public class AccountAggregate extends AggregateRoot {
         return balance;
     }
 
-    /*OpenAccount*/
+    /*OpenAccount: Command to Event, save this event to AgregateRootListEvents */
     public AccountAggregate(OpenAccountCommand command) {
         raiseEvent(AccountOpenedEvent.builder()
                 .id(command.getId())
